@@ -1,10 +1,12 @@
 # `HaploBlocks`
 
-This repository contains `HaploBlocks`, the efficient tool for detection of positive selection in ultra-large population
-genomic datasets.
+`HaploBlocks` implements an efficient approach for detecting positive selection in population
+genomic datasets with hundres of thousands of individuals or more.
 
 Please cite [Kirsch-Gerweck, *et al.* Journal. (Year)](tba.hyper-link.tba) (doi: tba)
 when using this program.
+
+The current implementation has been written by Michel T Henrichs, Bastien Cazaux, with minor bug fixes by Benedikt Kirsch-Gerweck.
 
 ## Installation
 
