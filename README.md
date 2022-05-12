@@ -1,7 +1,7 @@
 # `HaploBlocks`
 
 `HaploBlocks` implements an efficient approach for detecting positive selection in population
-genomic datasets with hundres of thousands of individuals or more.
+genomic datasets with hundreds of thousands of individuals or more.
 
 Please cite [Kirsch-Gerweck, *et al.* Journal. (Year)](tba.hyper-link.tba) (doi: tba)
 when using this program.
@@ -20,7 +20,13 @@ make
 
 ### Install prerequisites
 
-You will need R (for plotting). To install R on Ubuntu:
+You will need the command-line tool `convert` by ImageMagick to produce simple plots generated after each run of `HaploBlocks`. The current version of ImageMagick can be installed via:
+
+```
+sudo apt-get install imagemagick
+```
+
+More elaborate figures can be produced after running `HaploBlocks` using R. To install R on Ubuntu:
 
 ```
 sudo apt-get install r-base-core
@@ -44,7 +50,7 @@ To perform a simple chromosome-wide scan for selection run
        --lookup_path <path to lookup-table>
        --out_folder <path to output>
 ```
-**Note**, that HaploBlocks does not process gzipped VCF-files.
+**Note:** HaploBlocks does not process gzipped VCF-files.
 
 ### Command line arguments
 `--eff_pop_size <diploid population size>` sets the effective diploid population size (default: 1e4).
