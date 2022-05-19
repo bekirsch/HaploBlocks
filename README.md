@@ -14,7 +14,7 @@ Tested on Ubuntu 20.04 LTS:
 
 ```
 git clone https://github.com/bekirsch/HaploBlocks.git
-cd HaploBlocks
+cd HaploBlocks/build/
 make
 ```
 
@@ -37,21 +37,43 @@ sudo R -e 'install.packages(c("latex2exp", "stringr"), repos="https://cran.r-pro
 ```
 -->
 
-## Run HaploBlocks
+## Run HaploBlock
 
 Before analysing a dataset you need to create a lookup-table for the recent common ancestry significance testing. Therefore run
 ```
-./filter_lookup --N_e <diploid population size> --max_k <number of haploid samples> > <output filename>
+<Path-to-HaploBlocks>/build/filter_lookup --N_e <diploid population size> --max_k <number of haploid samples> > <output filename>
 ```
 
 To perform a simple chromosome-wide scan for selection run
 ```
-./full --vcf_path <path to vcf-file>
+<Path-to-HaploBlocks>/build/full --vcf_path <path to vcf-file>
        --genetic_map_path <path to genetic map>
        --lookup_path <path to lookup-table>
        --out_folder <path to output>
 ```
 **Note:** HaploBlocks does not process gzipped VCF-files.
+
+### Example
+
+The `example` folder contains a variant call file `example.vcf.gz` contains chromosome 2 of 503 individuals with european ancestry of the `1000 Genomes Project Phase 3` ([The 1000 Genomes Project Consortium (2015)](https://doi.org/10.1038/nature15393)) dataset. The file is subsetted to a 2.5 Mbp region around the LCT locus. A genetic map `CEU_recombination_map_hapmap_format_hg19_chr_2.txt` is located in this folder as well. This was obtained from https://drive.google.com/drive/folders/1Tgt_7GsDO0-o02vcYSfwqHFd3JNF6R06 released as part of [Spence and Song (2019)](https://doi.org/10.1126/sciadv.aaw9206).
+
+Navigate to `<Path-to-HaploBlocks>/example/` and run
+```
+gunzip -k example.vcf.gz
+```
+to unpack the VCF.
+Create the lookup-table, via
+```
+../build/filter_lookup --N_e 1e4 --max_k 1006 > example.lookup
+```
+where `max_k` is `2*503`.
+To run the scan execute
+```
+../build/full --vcf_path example.vcf
+       --genetic_map_path CEU_recombination_map_hapmap_format_hg19_chr_2.txt
+       --lookup_path example.lookup
+       --out_folder ./
+```
 
 ### Command line arguments
 `--eff_pop_size <diploid population size>` sets the effective diploid population size (default: 1e4).
