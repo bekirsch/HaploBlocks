@@ -26,7 +26,7 @@ You will need the command-line tool `convert` by ImageMagick to produce simple p
 sudo apt-get install imagemagick
 ```
 
-More elaborate figures can be produced after running `HaploBlocks` using R. To install R on Ubuntu:
+<!--- More elaborate figures can be produced after running `HaploBlocks` using R. To install R on Ubuntu:
 
 ```
 sudo apt-get install r-base-core
@@ -35,6 +35,7 @@ We require the `latex2exp` and `stringr` packages. If you don't have these insta
 ```
 sudo R -e 'install.packages(c("latex2exp", "stringr"), repos="https://cran.r-project.org")'
 ```
+-->
 
 ## Run HaploBlocks
 
