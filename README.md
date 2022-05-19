@@ -41,7 +41,7 @@ sudo R -e 'install.packages(c("latex2exp", "stringr"), repos="https://cran.r-pro
 
 Before analysing a dataset you need to create a lookup-table for the recent common ancestry significance testing. Therefore run
 ```
-<Path-to-HaploBlocks>/build/filter_lookup --N_e <diploid population size> --max_k <number of haploid samples> > <output filename>
+<Path-to-HaploBlocks>/build/filter_lookup --N_e <haploid population size> --max_k <number of haploid samples> > <output filename>
 ```
 
 To perform a simple chromosome-wide scan for selection run
@@ -64,13 +64,19 @@ gunzip -k example.vcf.gz
 to unpack the VCF.
 Create the lookup-table, via
 ```
-../build/filter_lookup --N_e 1e4 --max_k 1006 > example.lookup
+../build/filter_lookup --N_e 2e4 --max_k 1006 > example.lookup
 ```
 where `max_k` is `2*503`.
+Next, make sure the genetic map has the right formatting:
+
+```
+awk 'NR>1 { print "2\t.\t", $4, "\t",$2 }' CEU_recombination_map_hapmap_format_hg19_chr_2.txt > example.map
+```
+
 To run the scan execute
 ```
 ../build/full --vcf_path example.vcf
-       --genetic_map_path CEU_recombination_map_hapmap_format_hg19_chr_2.txt
+       --genetic_map_path example.map
        --lookup_path example.lookup
        --out_folder ./
 ```
