@@ -61,10 +61,10 @@ Also, make sure you have your genetic map in plink format available. The map fil
 
 To perform a simple chromosome-wide scan for selection run
 ```
-<Path-to-HaploBlocks>/build/full --vcf_path <path to vcf-file>
-       --genetic_map_path <path to genetic map>
-       --lookup_path <path to lookup-table>
-       --out_folder <path to output>
+<Path-to-HaploBlocks>/build/full --vcf_path <path to vcf-file> \
+       --genetic_map_path <path to genetic map> \
+       --lookup_path <path to lookup-table> \
+       --out_folder <path to output> \
 ```
 **Note:** HaploBlocks does not process gzipped VCF-files.
 
@@ -92,10 +92,10 @@ awk 'NR>1 { print "2\t.\t", $4, "\t",$2 }' CEU_recombination_map_hapmap_format_h
 
 4. To run the scan execute
 ```
-../build/full --vcf_path example.vcf
-       --genetic_map_path example.map
-       --lookup_path example.lookup
-       --out_folder ./
+../build/full --vcf_path example.vcf \
+       --genetic_map_path example.map \
+       --lookup_path example.lookup \
+       --out_folder ./ 
 ```
 
 ### Command line arguments
