@@ -20,10 +20,10 @@ make
 
 ### Install prerequisites
 
-You will need the command-line tool `convert` by ImageMagick to produce simple plots generated after each run of `HaploBlocks`. The current version of ImageMagick can be installed via:
+Haploblocks requires the C++ library boost math and you will need the command-line tool `convert` by ImageMagick to produce simple plots generated after each run of `HaploBlocks`. The current versions of these applications can be installed via:
 
 ```
-sudo apt-get install imagemagick
+sudo apt-get install imagemagick libboost-math-dev
 ```
 
 <!--- More elaborate figures can be produced after running `HaploBlocks` using R. To install R on Ubuntu:
