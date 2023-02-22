@@ -3,14 +3,13 @@
 `HaploBlocks` implements an efficient approach for detecting positive selection in population
 genomic datasets with hundreds of thousands of individuals or more.
 
-Please cite [Kirsch-Gerweck, *et al.* Journal. (Year)](tba.hyper-link.tba) (doi: tba)
-when using this program.
+Please cite [Kirsch-Gerweck, *et al.* Molecular Biology and Evolution. (2023)](https://doi.org/10.1093/molbev/msad027) when using this program.
 
 The current implementation has been written by Michel T Henrichs, Bastien Cazaux, with minor bug fixes by Benedikt Kirsch-Gerweck.
 
 ## Installation
 
-Tested on Ubuntu 20.04 LTS:
+Tested on Ubuntu 20.04:
 
 ```
 git clone https://github.com/bekirsch/HaploBlocks.git
@@ -20,10 +19,15 @@ make
 
 ### Install prerequisites
 
-Haploblocks requires the C++ library boost math and you will need the command-line tool `convert` by ImageMagick to produce simple plots generated after each run of `HaploBlocks`. The current versions of these applications can be installed via:
+HaploBlocks requires the C++ library boost math, of which the current version can be installed via: <!--- and you will need the command-line tool `convert` by ImageMagick to produce simple plots generated after each run of `HaploBlocks`. The current versions of these applications can be installed via: sudo apt-get install imagemagick -->
 
 ```
-sudo apt-get install imagemagick libboost-math-dev
+sudo apt install libboost-math-dev
+```
+To create a simple figure of HaploBlocks' output we suggest running the provided R-script `hist.R` after the HaploBlocks algorithm. To install R on Ubuntu:
+
+```
+sudo apt install r-base-core
 ```
 
 <!--- More elaborate figures can be produced after running `HaploBlocks` using R. To install R on Ubuntu:
@@ -37,7 +41,7 @@ sudo R -e 'install.packages(c("latex2exp", "stringr"), repos="https://cran.r-pro
 ```
 -->
 
-## Run HaploBlock
+## Run HaploBlocks
 
 Before analysing a dataset you need to create a lookup-table for the recent common ancestry significance testing. Therefore run
 ```
@@ -98,7 +102,13 @@ awk 'NR>1 { print "2\t.\t", $4, "\t",$2 }' CEU_recombination_map_hapmap_format_h
        --out_folder ./ 
 ```
 
+**Optional:** Plot the output of HaploBlocks:
+```
+Rscript ../hist.R example.vcf_filtered.sHat.csv 
+```
+
 ### Command line arguments
+
 `--eff_pop_size <diploid population size>` sets the effective diploid population size (default: 1e4).
 
 `--remove` deletes intermediate files at the end of a run.
@@ -107,5 +117,4 @@ awk 'NR>1 { print "2\t.\t", $4, "\t",$2 }' CEU_recombination_map_hapmap_format_h
 
 `--skip_filters` skips significance testing schemes.
 
-
-`...`
+Additional CLA are listed when running `full` without arguments.

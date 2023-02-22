@@ -245,15 +245,15 @@ void do_everything(Config &config)
 	last_step = std::chrono::steady_clock::now();
 	
 	// call create_hist
-	std::string file_id_res = file_id_short + "_" + std::to_string(config.resolution);
-	std::string hist_file = config.out_folder + base_name + file_id_res + ".pbm";
-	std::string hist_file_png = config.out_folder + base_name + file_id_res + ".png";
-	if (config.overwrite || !file_exists(hist_file_png))
-	{
-		print_pbm(coeff_file_filt, hist_file, config.resolution);
-		std::cerr << "Histogram created, took ";
-		passed_time(last_step);
-	}
+	//std::string file_id_res = file_id_short + "_" + std::to_string(config.resolution);
+	//std::string hist_file = config.out_folder + base_name + file_id_res + ".pbm";
+	//std::string hist_file_png = config.out_folder + base_name + file_id_res + ".png";
+	//if (config.overwrite || !file_exists(hist_file_png))
+	//{
+	//	print_pbm(coeff_file_filt, hist_file, config.resolution);
+	//	std::cerr << "Histogram created, took ";
+	//	passed_time(last_step);
+	//}
 	
 	if (config.do_report)
 	{
