@@ -41,7 +41,7 @@ sudo R -e 'install.packages(c("latex2exp", "stringr"), repos="https://cran.r-pro
 ```
 -->
 
-## Run HaploBlock
+## Run HaploBlocks
 
 Before analysing a dataset you need to create a lookup-table for the recent common ancestry significance testing. Therefore run
 ```
