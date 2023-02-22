@@ -7,6 +7,7 @@
 #include <utility>
 #include <cmath>
 #include <climits>
+#include <limits>
 #include <algorithm>
 #include <map>
 #include <numeric>      // std::adjacent_difference, std::accumulate
