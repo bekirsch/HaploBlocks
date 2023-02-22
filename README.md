@@ -3,14 +3,13 @@
 `HaploBlocks` implements an efficient approach for detecting positive selection in population
 genomic datasets with hundreds of thousands of individuals or more.
 
-Please cite [Kirsch-Gerweck, *et al.* Journal. (Year)](tba.hyper-link.tba) (doi: tba)
-when using this program.
+Please cite [Kirsch-Gerweck, *et al.* Molecular Biology and Evolution. (2023)](https://doi.org/10.1093/molbev/msad027) when using this program.
 
 The current implementation has been written by Michel T Henrichs, Bastien Cazaux, with minor bug fixes by Benedikt Kirsch-Gerweck.
 
 ## Installation
 
-Tested on Ubuntu 20.04 LTS:
+Tested on Ubuntu 20.04:
 
 ```
 git clone https://github.com/bekirsch/HaploBlocks.git
