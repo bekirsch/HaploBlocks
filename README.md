@@ -108,6 +108,7 @@ Rscript ../hist.R example.vcf_filtered.sHat.csv
 ```
 
 ### Command line arguments
+
 `--eff_pop_size <diploid population size>` sets the effective diploid population size (default: 1e4).
 
 `--remove` deletes intermediate files at the end of a run.
@@ -116,5 +117,4 @@ Rscript ../hist.R example.vcf_filtered.sHat.csv
 
 `--skip_filters` skips significance testing schemes.
 
-
-`...`
+Additional CLA are listed when running `full` without arguments.
