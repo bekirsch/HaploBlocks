@@ -19,10 +19,15 @@ make
 
 ### Install prerequisites
 
-Haploblocks requires the C++ library boost math and you will need the command-line tool `convert` by ImageMagick to produce simple plots generated after each run of `HaploBlocks`. The current versions of these applications can be installed via:
+HaploBlocks requires the C++ library boost math, of which the current version can be installed via: <!--- and you will need the command-line tool `convert` by ImageMagick to produce simple plots generated after each run of `HaploBlocks`. The current versions of these applications can be installed via: sudo apt-get install imagemagick -->
 
 ```
-sudo apt-get install imagemagick libboost-math-dev
+sudo apt install libboost-math-dev
+```
+To create a simple figure of HaploBlocks' output we suggest running the provided R-script `hist.R` after the HaploBlocks algorithm. To install R on Ubuntu:
+
+```
+sudo apt install r-base-core
 ```
 
 <!--- More elaborate figures can be produced after running `HaploBlocks` using R. To install R on Ubuntu:
@@ -95,6 +100,11 @@ awk 'NR>1 { print "2\t.\t", $4, "\t",$2 }' CEU_recombination_map_hapmap_format_h
        --genetic_map_path example.map \
        --lookup_path example.lookup \
        --out_folder ./ 
+```
+
+**Optional:** Plot the output of HaploBlocks:
+```
+Rscript ../hist.R example.vcf_filtered.sHat.csv 
 ```
 
 ### Command line arguments
