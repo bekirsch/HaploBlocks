@@ -43,7 +43,7 @@ sudo R -e 'install.packages(c("latex2exp", "stringr"), repos="https://cran.r-pro
 
 ## Run HaploBlocks
 
-Before analysing a dataset you need to create a lookup-table for the recent common ancestry significance testing. Therefore run
+Before analysing a dataset you need to create a lookup-table for the recent common ancestry filtering step. Therefore run
 ```
 <Path-to-HaploBlocks>/build/filter_lookup --N_e <haploid population size> --max_k <number of haploid samples> > <output filename>
 ```
@@ -115,6 +115,6 @@ Rscript ../hist.R example.vcf_filtered.sHat.csv
 
 `--overwrite` overwrites existing files with the same name.
 
-`--skip_filters` skips significance testing schemes.
+`--skip_filters` skips common ancestry and genetic drift filtering steps.
 
 Additional CLA are listed when running `full` without arguments.
